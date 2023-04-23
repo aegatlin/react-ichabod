@@ -2,10 +2,18 @@
   "name": "ichabod",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "bin": {
+    "eject": "dist/eject.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/components"
+  ],
   "scripts": {
     "dev": "npm run build -- --watch",
-    "build": "tsup --entry.index src/index.ts --entry.classes bin/classes.mjs",
+    "build": "tsup src/index.ts --dts && tsup bin/eject.cjs",
     "test": "jest"
   },
   "author": "",

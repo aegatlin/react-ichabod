@@ -9,17 +9,23 @@ function setup() {
   };
 }
 
-test("Button component", async () => {
+test("with all props", async () => {
   const { user } = setup();
 
   const mock = jest.fn();
-  render(<Button onClick={mock}>click me</Button>);
+  render(
+    <Button onClick={mock} classes="style-one">
+      click me
+    </Button>
+  );
   const button = await screen.findByRole("button", { name: "click me" });
   await user.click(button);
   expect(mock).toHaveBeenCalled();
+  expect(button.hasAttribute("class")).toBe(true);
+  expect(button.getAttribute("class")).toBe("style-one");
 });
 
-test("disabled button", async () => {
+test("disabled", async () => {
   const { user } = setup();
 
   const mock = jest.fn();
@@ -33,7 +39,7 @@ test("disabled button", async () => {
   expect(mock).not.toHaveBeenCalled();
 });
 
-test("button with no props", async () => {
+test("with no props", async () => {
   const { user } = setup();
 
   render(<Button />);

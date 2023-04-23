@@ -1,7 +1,6 @@
-import { test, expect } from "@jest/globals";
+import { expect, test } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import { Link } from "./Link";
-import userEvent from "@testing-library/user-event";
 
 test("Link component", async () => {
   render(<Link href="/away">away</Link>);

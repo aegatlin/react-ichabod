@@ -1,6 +1,6 @@
 {
-  "name": "ichabod",
-  "version": "0.0.1",
+  "name": "react-ichabod",
+  "version": "0.0.2",
   "description": "headless react components",
   "bin": "dist/eject.js",
   "main": "dist/index.js",
@@ -17,7 +17,7 @@
     "package:patch": "npm version patch",
     "package:publish": "npm publish"
   },
-  "author": "",
+  "author": "Austin Gatlin",
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",

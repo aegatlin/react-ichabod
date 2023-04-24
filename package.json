@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "dev": "npm run build -- --watch",
+    "format": "prettier --write src bin README.md",
     "build": "tsup src/index.ts --dts && tsup bin/eject.ts",
     "test": "jest",
     "test:eject": "npm run build && node dist/eject.js ichabod eject button src",
@@ -33,7 +34,7 @@
     "babel-jest": "^29.5.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4"
   }

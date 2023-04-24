@@ -1,10 +1,8 @@
 {
   "name": "ichabod",
-  "version": "1.0.0",
-  "description": "",
-  "bin": {
-    "eject": "dist/eject.js"
-  },
+  "version": "0.0.1",
+  "description": "headless react components",
+  "bin": "dist/eject.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -13,8 +11,11 @@
   ],
   "scripts": {
     "dev": "npm run build -- --watch",
-    "build": "tsup src/index.ts --dts && tsup bin/eject.cjs",
-    "test": "jest"
+    "build": "tsup src/index.ts --dts && tsup bin/eject.ts",
+    "test": "jest",
+    "test:eject": "npm run build && node dist/eject.js ichabod eject button src",
+    "package:patch": "npm version patch",
+    "package:publish": "npm publish"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "@babel/preset-typescript": "^7.21.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^18.16.0",
     "babel-jest": "^29.5.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",

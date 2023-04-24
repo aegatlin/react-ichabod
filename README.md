@@ -1,4 +1,4 @@
-# ichabod
+# react-ichabod
 
 headless react components
 

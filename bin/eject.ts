@@ -1,18 +1,36 @@
 #!/usr/bin/env node
 
-const fs = require("node:fs");
-const process = require("node:process");
-const path = require("node:path");
+import fs from "node:fs";
+import path from "node:path";
+import process from "node:process";
 
-const mapping = {
+/*
+## Example
+
+The following assumes `src/components` is in the user repo
+and that they have already installed `npm i react-ichabod`.
+
+`npx ichabod eject button src/components`
+
+## Lazy testing
+
+`npm run build`
+`node dist/eject.cjs ichabod eject
+*/
+
+const mapping: { [key: string]: string } = {
   button: "Button.tsx",
   card: "Card.tsx",
   link: "Link.tsx",
 };
 
 const args = {
-  component: process.argv[2],
-  toPathDir: process.argv[3],
+  // ichabod is unused. It's purpose is namespacing, since `eject` likely
+  // conflicts with other libraries.
+  ichabod: process.argv[2],
+  eject: process.argv[3],
+  component: process.argv[4],
+  toPathDir: process.argv[5],
 };
 
 if (!args.component || !args.toPathDir) {
@@ -34,7 +52,7 @@ const ichabod = {
     // __dirname is <root>/bin
     // __dirname/.. is <root>
     // __dirname/../src/components is <root>/src/components
-    component(component) {
+    component(component: string) {
       return path.resolve(__dirname, "../src/components", component);
     },
   },
@@ -42,7 +60,7 @@ const ichabod = {
 
 const repo = {
   path: {
-    component(component) {
+    component(component: string) {
       return path.resolve(process.cwd(), args.toPathDir, component);
     },
   },

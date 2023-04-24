@@ -1,1 +1,4 @@
+npm run build
 npm run test
+npm run package:patch
+npm run package:publish

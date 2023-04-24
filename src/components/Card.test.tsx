@@ -1,13 +1,14 @@
-import { test } from "@jest/globals";
+import { test, expect } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import { Card } from "./Card";
 
-test("Card component", async () => {
-  render(<Card>anything</Card>);
-  await screen.findByText("anything");
+test("with all props", async () => {
+  render(<Card classes="c-one">anything</Card>);
+  const card = await screen.findByText("anything");
+  expect(card.getAttribute("class")).toBe("c-one");
 });
 
-test("card with no props", async () => {
+test("with no props", async () => {
   render(<Card />);
   await screen.findByText("card content");
 });

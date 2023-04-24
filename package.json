@@ -1,6 +1,6 @@
 {
   "name": "react-ichabod",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "headless react components",
   "bin": "dist/eject.js",
   "main": "dist/index.js",
